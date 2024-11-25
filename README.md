@@ -42,7 +42,7 @@ The `pom.xml` file defines the project dependencies and build configuration:
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
+    <groupId>odimash</groupId>
     <artifactId>call-center</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
@@ -57,7 +57,7 @@ The `pom.xml` file defines the project dependencies and build configuration:
 This class manages a pool of operators using a `BlockingQueue`. It allows clients to acquire and release operators:
 
 ```java
-package com.example.callcenter;
+package odimash.callcenter;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -91,7 +91,7 @@ public class CallCenter {
 This class represents a client calling the call center. Each client tries to get an available operator, gets served, and then may call again after a random delay:
 
 ```java
-package com.example.callcenter;
+package odimash.callcenter;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -128,7 +128,7 @@ public class Client implements Runnable {
 This class represents an operator in the call center:
 
 ```java
-package com.example.callcenter;
+package odimash.callcenter;
 
 public class Operator {
     private final String name;
@@ -148,7 +148,7 @@ public class Operator {
 This is the entry point of the application. It initializes the call center and starts multiple client threads using an `ExecutorService`:
 
 ```java
-package com.example.callcenter;
+package odimash.callcenter;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -181,7 +181,7 @@ mvn clean compile
 ### Run the Application
 
 ```sh
-mvn exec:java -Dexec.mainClass=com.example.callcenter.MainApp
+mvn exec:java -Dexec.mainClass=odimash.callcenter.MainApp
 ```
 
 Alternatively, you can import the project into an IDE like IntelliJ IDEA or Eclipse:
